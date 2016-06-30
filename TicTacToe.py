@@ -7,13 +7,23 @@ def printGame():
 
 print("Welcome to Tic Tac Toe. Please press enter to continue.")
 input()
-printGame()
 x = 0
 while(x < 9):
-	print("Please enter coordinates in the form x,y")
-	stringIn = input()
-	x = int(stringIn[0])
-	y = int(stringIn[2])
-	game[x-1][y-1] = 'X'
 	printGame()
+	print("\nPlease enter coordinates in the form x,y")
+	stringIn = input()
+	row = int(stringIn[0])
+	col = int(stringIn[2])
+	print()
+	if(game[row-1][col-1] == ' '):
+		if(x % 2 == 0):
+			game[row-1][col-1] = 'X'
+			x = x + 1
+		else:
+			game[row-1][col-1] = '0'
+			x = x + 1
+	else:
+		print("Invalid input, please try again.")
+printGame()
+
 
