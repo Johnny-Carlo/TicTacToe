@@ -10,12 +10,21 @@ input()
 x = 0
 while(x < 9):
 	printGame()
-	print("\nPlease enter coordinates in the form x,y")
+	print("\nPlease enter coordinates in the form x,y : type QUIT to quit.")
 	stringIn = input()
-	row = int(stringIn[0])
-	col = int(stringIn[2])
+	if(stringIn.upper() == "QUIT"):
+		break
+	row = 0;
+	col = 0;
+	cont = False;
+	try:
+		row = int(stringIn[2])
+		col = int(stringIn[0])
+		cont = True
+	except:
+		cont = False
 	print()
-	if(game[row-1][col-1] == ' '):
+	if(cont and game[row-1][col-1] == ' '):
 		if(x % 2 == 0):
 			game[row-1][col-1] = 'X'
 			x = x + 1
